@@ -3,3 +3,5 @@ Dataset/train
 Dataset/val
 Script/.ipynb_checkpoints
 Script/__pycache__
+Model/*
+!Model/download_model.bat
