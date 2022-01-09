@@ -5,10 +5,10 @@ input_shape = (256, 256, 3)  # Height, Width, Channel
 output_shape = 7
 
 # Dataset
-dataset_name = 'msambare/fer2013'
 dir_dataset_raw = root + 'Dataset/raw/'
 dir_dataset_train = root + 'Dataset/train/'
 dir_dataset_val = root + 'Dataset/val/'
+dir_dataset_test = root + 'Dataset/test/'
 
 # Resources
 dir_resources = root + 'Resources/'
