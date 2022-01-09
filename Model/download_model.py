@@ -7,6 +7,6 @@ def download_model(model_name, id, unzip=True):
     print('Successfully downloaded %s model from %s'%(model_name, id))
 
 if __name__ == '__main__':
-    download_model('v1-cnn', '1Pjk3pRu_0A_4Ip8VohAHgJriWx48w_P-')
-    download_model('v2-resnet-50', '1-Wp30ij337nUmkx-8TokPHhKZJXxWuEI')
+    download_model('v1-resnet-50-fer2013', '1cskda0niSBXBo7PpYzYiK8rkz6Ppnf0Y')
+    download_model('v2-resnet-50-personal', '10ZzUgz8hWHwO_pzSzYlVnvq0Mrw2dbw_')
     
