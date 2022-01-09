@@ -1,7 +1,8 @@
-Dataset/raw
-Dataset/train
-Dataset/val
+Dataset/*
+!Dataset/download_dataset_personal.py
+!Dataset/download_dataset_fer2013.py
+!Dataset/split_train.py
+Model/*
+!Model/download_model.py
 Script/.ipynb_checkpoints
 Script/__pycache__
-Model/*
-!Model/download_model.bat

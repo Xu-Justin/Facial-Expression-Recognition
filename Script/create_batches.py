@@ -1,12 +1,8 @@
 import kaggle, os, cv2, random
 import numpy as np
-from config import dataset_name, dir_dataset_raw, dir_dataset_train, dir_dataset_val
+from config import dir_dataset_raw, dir_dataset_train, dir_dataset_val, dir_dataset_test
 from config import facial_expression_rev
 import Preprocess
-
-def download_dataset(dataset_name, path):
-    kaggle.api.authenticate()
-    kaggle.api.dataset_download_files(dataset_name, force=True, path=path, quiet=False, unzip=True)
 
 def create_batches(source, target, batch_size):
     dataset = []
@@ -55,7 +51,7 @@ def create_batches(source, target, batch_size):
     print('Finished created image to batches from %s to %s (%d)'%(source, target, len(dataset)))
     
 if __name__ == '__main__': 
-    download_dataset(dataset_name, dir_dataset_raw)
     create_batches( os.path.join(dir_dataset_raw, 'train/'), dir_dataset_train, 32 )
-    create_batches( os.path.join(dir_dataset_raw, 'test/'), dir_dataset_val, 32 )
+    create_batches( os.path.join(dir_dataset_raw, 'val/'), dir_dataset_val, 32 )
+    create_batches( os.path.join(dir_dataset_raw, 'test/'), dir_dataset_test, 32 )
     
