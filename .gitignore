@@ -1,8 +1,6 @@
 Dataset/*
-!Dataset/download_dataset_personal.py
-!Dataset/download_dataset_fer2013.py
-!Dataset/split_train.py
-Model/*
-!Model/download_model.py
+!Dataset/import_dataset.py
+Resources/model_saved/*
+!Resources/model_saved/import_trained_model.py
 Script/.ipynb_checkpoints
 Script/__pycache__

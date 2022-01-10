@@ -1,8 +1,9 @@
-import kaggle, os, cv2, random
-import numpy as np
-from config import dir_dataset_raw, dir_dataset_train, dir_dataset_val, dir_dataset_test
+from config import train_fer2013, val_fer2013, train_personal, val_personal, test
+from config import train_fer2013_batch, val_fer2013_batch, train_personal_batch, val_personal_batch, test_batch
 from config import facial_expression_rev
-import Preprocess
+
+import os, cv2, Preprocess, shutil
+import numpy as np
 
 def create_batches(source, target, batch_size):
     dataset = []
@@ -17,9 +18,12 @@ def create_batches(source, target, batch_size):
             image = cv2.imread(image_path, 0)
             dataset.append((image, facial_expression_rev[expression]))
     
-    random.shuffle(dataset)
-    os.makedirs(target)
+    np.random.shuffle(dataset)
     number_of_batch = int(np.ceil(len(dataset)/batch_size))
+    
+    if(os.path.exists(target)):
+        shutil.rmtree(target)
+    os.makedirs(target)
     
     for i in range(number_of_batch):
         X = []
@@ -51,7 +55,8 @@ def create_batches(source, target, batch_size):
     print('Finished created image to batches from %s to %s (%d)'%(source, target, len(dataset)))
     
 if __name__ == '__main__': 
-    create_batches( os.path.join(dir_dataset_raw, 'train/'), dir_dataset_train, 32 )
-    create_batches( os.path.join(dir_dataset_raw, 'val/'), dir_dataset_val, 32 )
-    create_batches( os.path.join(dir_dataset_raw, 'test/'), dir_dataset_test, 32 )
-    
+    create_batches( train_fer2013, train_fer2013_batch, 32 )
+    create_batches( val_fer2013, val_fer2013_batch, 32 )
+    create_batches( train_personal, train_personal_batch, 32 )
+    create_batches( val_personal, val_personal_batch, 32 )
+    create_batches( test, test_batch, 32 )

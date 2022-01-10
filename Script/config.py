@@ -5,13 +5,24 @@ input_shape = (256, 256, 3)  # Height, Width, Channel
 output_shape = 7
 
 # Dataset
-dir_dataset_raw = root + 'Dataset/raw/'
-dir_dataset_train = root + 'Dataset/train/'
-dir_dataset_val = root + 'Dataset/val/'
-dir_dataset_test = root + 'Dataset/test/'
+train_fer2013 = root + 'Dataset/train-fer2013/'
+val_fer2013 = root + 'Dataset/val-fer2013/'
+train_personal = root + 'Dataset/train-personal/'
+val_personal = root + 'Dataset/val-personal/'
+test = root + 'Dataset/test/'
+
+train_fer2013_batch = root + 'Dataset/train-fer2013-batch/'
+val_fer2013_batch = root + 'Dataset/val-fer2013-batch/'
+train_personal_batch = root + 'Dataset/train-personal-batch/'
+val_personal_batch = root + 'Dataset/val-personal-batch/'
+test_batch = root + 'Dataset/test-batch/'
 
 # Resources
-dir_resources = root + 'Resources/'
+dir_model_saved = root + 'Resources/model_saved/'
+dir_model_plot = root + 'Resources/model_plot/'
+dir_model_summary = root + 'Resources/model_summary/'
+dir_haarcascade = root + 'Resources/haarcascade/'
+dir_video = root + 'Resources/video/'
 
 # Output Description
 facial_expression = {
@@ -37,3 +48,6 @@ facial_expression_color_bgr = {
     5 : (184,136,231),
     6 : (250,247,244)
 }
+
+assert(len(facial_expression) == output_shape)
+assert(len(facial_expression) == len(facial_expression_rev))
