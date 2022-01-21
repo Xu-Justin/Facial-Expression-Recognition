@@ -6,4 +6,4 @@ Watch the video result of this project from this [link](https://drive.google.com
 
 ---
 
-Created by William Justin and Ichsan.
+Authored by William Justin and Ichsan.
