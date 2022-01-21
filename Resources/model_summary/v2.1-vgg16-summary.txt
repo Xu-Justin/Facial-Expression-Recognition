@@ -1,0 +1,80 @@
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_4 (InputLayer)        [(None, 256, 256, 3)]     0         
+                                                                 
+ tf.__operators__.getitem_1   (None, 256, 256, 3)      0         
+ (SlicingOpLambda)                                               
+                                                                 
+ tf.nn.bias_add_1 (TFOpLambd  (None, 256, 256, 3)      0         
+ a)                                                              
+                                                                 
+ vgg16 (Functional)          (None, 8, 8, 512)         14714688  
+|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+| input_3 (InputLayer)      [(None, 256, 256, 3)]     0         |
+|                                                               |
+| block1_conv1 (Conv2D)     (None, 256, 256, 64)      1792      |
+|                                                               |
+| block1_conv2 (Conv2D)     (None, 256, 256, 64)      36928     |
+|                                                               |
+| block1_pool (MaxPooling2D)  (None, 128, 128, 64)    0         |
+|                                                               |
+| block2_conv1 (Conv2D)     (None, 128, 128, 128)     73856     |
+|                                                               |
+| block2_conv2 (Conv2D)     (None, 128, 128, 128)     147584    |
+|                                                               |
+| block2_pool (MaxPooling2D)  (None, 64, 64, 128)     0         |
+|                                                               |
+| block3_conv1 (Conv2D)     (None, 64, 64, 256)       295168    |
+|                                                               |
+| block3_conv2 (Conv2D)     (None, 64, 64, 256)       590080    |
+|                                                               |
+| block3_conv3 (Conv2D)     (None, 64, 64, 256)       590080    |
+|                                                               |
+| block3_pool (MaxPooling2D)  (None, 32, 32, 256)     0         |
+|                                                               |
+| block4_conv1 (Conv2D)     (None, 32, 32, 512)       1180160   |
+|                                                               |
+| block4_conv2 (Conv2D)     (None, 32, 32, 512)       2359808   |
+|                                                               |
+| block4_conv3 (Conv2D)     (None, 32, 32, 512)       2359808   |
+|                                                               |
+| block4_pool (MaxPooling2D)  (None, 16, 16, 512)     0         |
+|                                                               |
+| block5_conv1 (Conv2D)     (None, 16, 16, 512)       2359808   |
+|                                                               |
+| block5_conv2 (Conv2D)     (None, 16, 16, 512)       2359808   |
+|                                                               |
+| block5_conv3 (Conv2D)     (None, 16, 16, 512)       2359808   |
+|                                                               |
+| block5_pool (MaxPooling2D)  (None, 8, 8, 512)       0         |
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ global_average_pooling2d_1   (None, 512)              0         
+ (GlobalAveragePooling2D)                                        
+                                                                 
+ dense_3 (Dense)             (None, 4096)              2101248   
+                                                                 
+ batch_normalization_2 (Batc  (None, 4096)             16384     
+ hNormalization)                                                 
+                                                                 
+ activation_2 (Activation)   (None, 4096)              0         
+                                                                 
+ dropout_2 (Dropout)         (None, 4096)              0         
+                                                                 
+ dense_4 (Dense)             (None, 2048)              8390656   
+                                                                 
+ batch_normalization_3 (Batc  (None, 2048)             8192      
+ hNormalization)                                                 
+                                                                 
+ activation_3 (Activation)   (None, 2048)              0         
+                                                                 
+ dropout_3 (Dropout)         (None, 2048)              0         
+                                                                 
+ dense_5 (Dense)             (None, 7)                 14343     
+                                                                 
+=================================================================
+Total params: 25,245,511
+Trainable params: 12,878,343
+Non-trainable params: 12,367,168
+_________________________________________________________________

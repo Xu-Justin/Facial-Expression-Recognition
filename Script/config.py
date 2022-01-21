@@ -5,16 +5,8 @@ input_shape = (256, 256, 3)  # Height, Width, Channel
 output_shape = 7
 
 # Dataset
-train_fer2013 = root + 'Dataset/train-fer2013/'
-val_fer2013 = root + 'Dataset/val-fer2013/'
-train_personal = root + 'Dataset/train-personal/'
-val_personal = root + 'Dataset/val-personal/'
-test = root + 'Dataset/test/'
-
-train_fer2013_batch = root + 'Dataset/train-fer2013-batch/'
-val_fer2013_batch = root + 'Dataset/val-fer2013-batch/'
-train_personal_batch = root + 'Dataset/train-personal-batch/'
-val_personal_batch = root + 'Dataset/val-personal-batch/'
+train_batch = root + 'Dataset/train-batch/'
+val_batch = root + 'Dataset/val-batch/'
 test_batch = root + 'Dataset/test-batch/'
 
 # Resources

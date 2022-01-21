@@ -1,5 +1,5 @@
-from config import train_fer2013, val_fer2013, train_personal, val_personal, test
-from config import train_fer2013_batch, val_fer2013_batch, train_personal_batch, val_personal_batch, test_batch
+from config import root
+from config import train_batch, val_batch, test_batch
 from config import facial_expression_rev
 
 import os, cv2, Preprocess, shutil
@@ -16,6 +16,7 @@ def create_batches(source, target, batch_size):
         for image_name in images_name:
             image_path = os.path.join(expression_path, image_name)
             image = cv2.imread(image_path, 0)
+            image = cv2.equalizeHist(image)
             dataset.append((image, facial_expression_rev[expression]))
     
     np.random.shuffle(dataset)
@@ -23,6 +24,7 @@ def create_batches(source, target, batch_size):
     
     if(os.path.exists(target)):
         shutil.rmtree(target)
+        
     os.makedirs(target)
     
     for i in range(number_of_batch):
@@ -55,8 +57,8 @@ def create_batches(source, target, batch_size):
     print('Finished created image to batches from %s to %s (%d)'%(source, target, len(dataset)))
     
 if __name__ == '__main__': 
-    create_batches( train_fer2013, train_fer2013_batch, 32 )
-    create_batches( val_fer2013, val_fer2013_batch, 32 )
-    create_batches( train_personal, train_personal_batch, 32 )
-    create_batches( val_personal, val_personal_batch, 32 )
-    create_batches( test, test_batch, 32 )
+    batch_size = 32
+    
+    create_batches( os.path.join(root, 'Dataset/mix/train/'), train_batch, batch_size )
+    create_batches( os.path.join(root, 'Dataset/mix/val/'), val_batch, batch_size )
+    create_batches( os.path.join(root, 'Dataset/fer2013/test/'), test_batch, batch_size )

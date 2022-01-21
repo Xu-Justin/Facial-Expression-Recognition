@@ -11,5 +11,6 @@ def download_model(model_name, id, unzip=True):
 
 
 if __name__ == '__main__':
-    download_model('v1-resnet-50-fer2013', '1cskda0niSBXBo7PpYzYiK8rkz6Ppnf0Y')
-    download_model('v2-resnet-50-personal', '10ZzUgz8hWHwO_pzSzYlVnvq0Mrw2dbw_')
+    download_model('v1-resnet50', '')
+    download_model('v2.1-vgg16', '')
+    download_model('v2.2-vgg16', '')
