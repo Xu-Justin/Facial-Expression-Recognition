@@ -1,5 +1,9 @@
 Dataset/*
 !Dataset/import_dataset.py
+!Dataset/merge_dataset.py
+!Dataset/report.py
+!Dataset/augmentation.py
+!Dataset/dataset_structure.txt
 Resources/model_saved/*
 !Resources/model_saved/import_trained_model.py
 Script/.ipynb_checkpoints
