@@ -1,0 +1,69 @@
+Dataset
+│
+├─fer2013
+│ ├─train
+│ │ ├─angry
+│ │ ├─disgust
+│ │ ├─fear
+│ │ ├─happy
+│ │ ├─neutral
+│ │ ├─sad
+│ │ └─surprise
+│ │
+│ ├─val
+│ │ ├─angry
+│ │ ├─disgust
+│ │ ├─fear
+│ │ ├─happy
+│ │ ├─neutral
+│ │ ├─sad
+│ │ └─surprise
+│ │
+│ └─test
+│   ├─angry
+│   ├─disgust
+│   ├─fear
+│   ├─happy
+│   ├─neutral
+│   ├─sad
+│   └─surprise
+│
+├─personal
+│ ├─train
+│ │ ├─angry
+│ │ ├─disgust
+│ │ ├─fear
+│ │ ├─happy
+│ │ ├─neutral
+│ │ ├─sad
+│ │ └─surprise
+│ │
+│ └─val
+│   ├─angry
+│   ├─disgust
+│   ├─fear
+│   ├─happy
+│   ├─neutral
+│   ├─sad
+│   └─surprise
+│
+└─mix
+  ├─train
+  │ ├─angry
+  │ ├─disgust
+  │ ├─fear
+  │ ├─happy
+  │ ├─neutral
+  │ ├─sad
+  │ └─surprise
+  │
+  └─val
+    ├─angry
+    ├─disgust
+    ├─fear
+    ├─happy
+    ├─neutral
+    ├─sad
+    └─surprise
+
+    

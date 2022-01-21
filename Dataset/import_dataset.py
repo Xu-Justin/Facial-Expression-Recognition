@@ -34,25 +34,61 @@ def split(source, target_train, target_val, train_size):
             print('Copying files to %s (%d/%d)'%(os.path.join(target_val, expression), i+1, len(list_val_file_name)), end='\r')
             shutil.copyfile( os.path.join(source, expression, file_name), os.path.join(target_val, expression, file_name) )
         print()
+
+def copy(source, target):
+    list_expression = os.listdir(source)
+    for expression in list_expression:
+        os.makedirs(os.path.join(target, expression), exist_ok=True)
+        
+        list_file_name = os.listdir(os.path.join(source, expression))
+        for i, file_name in enumerate(list_file_name):
+            print('Copying files to %s (%d/%d)'%(os.path.join(target, expression), i+1, len(list_file_name)), end='\r')
+            shutil.copyfile( os.path.join(source, expression, file_name), os.path.join(target, expression, file_name) )
+    print()    
+
+def merge(source1, source2, target):
+    copy(source1, target)
+    copy(source2, target)
         
 def remove(path):
     if(os.path.exists(path)):
         shutil.rmtree(path)
 
+def report(path):
+    print("%s"%path)
+    total = 0
+    list_expression = os.listdir(path)
+    for expression in list_expression:
+        list_file_name = os.listdir(os.path.join(path, expression))
+        print("%-20s : %d"%(os.path.join(path, expression), len(list_file_name)))
+        total += len(list_file_name)
+    print("Total : %d"%total)
+    print()    
+
 if __name__ == '__main__':
-    remove('train-fer2013')
-    remove('val-fer2013')
-    remove('train-personal')
-    remove('val-personal')
-    remove('test')
+    remove('fer2013')
+    remove('personal')
     
     os.makedirs('raw/')
     download_kaggle_dataset('msambare/fer2013', 'raw/')
-    split('raw/train/', 'train-fer2013/', 'val-fer2013/', train_size = 0.8)
-    os.rename('raw/test', 'test/')
+    split('raw/train/', 'fer2013/train/', 'fer2013/val/', train_size = 0.8)
+    os.rename('raw/test', 'fer2013/test/')
     shutil.rmtree('raw/')
     
     os.makedirs('raw/')
     download('1zJ_b5j-f_VpfLAWh2lapvYudpL-9hNJx', 'raw/personal_dataset.zip', unzip=True)
-    split('raw/train/', 'train-personal/', 'val-personal/', train_size = 0.8)
+    split('raw/train/', 'personal/train/', 'personal/val/', train_size = 0.8)
     shutil.rmtree('raw/')
+    
+    print()
+    report('fer2013/train/')
+    report('fer2013/val/')
+    report('fer2013/test/')
+    
+    print()
+    report('personal/train/')
+    report('personal/val/')
+    
+    print()
+    report('mix/train/')
+    report('mix/val/')
